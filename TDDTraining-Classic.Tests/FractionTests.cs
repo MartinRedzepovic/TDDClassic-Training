@@ -65,7 +65,20 @@ namespace TDDTraining_Classic.Tests
 
             // then
             result.ToString().Should().Be("1/2");
+        }
 
+        [Test]
+        public void Add_ResultIsIntegerIfResultNominatorIsDivisableByDenominator()
+        {
+            // given
+            var fraction1 = new Fraction(1, 2);
+            var fraction2 = new Fraction(1, 2);
+
+            // when
+            var result = fraction1.Add(fraction2);
+
+            // then
+            result.ToString().Should().Be("1");
         }
     }
 }

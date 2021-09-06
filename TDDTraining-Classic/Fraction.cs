@@ -34,7 +34,7 @@ namespace TDDTraining_Classic
 
         public override string ToString()
         {
-            return $"{Nominator}/{Denominator}";
+            return Nominator % Denominator == 0 ? $"{Nominator / Denominator}" : $"{Nominator}/{Denominator}";
         }
     }
 }
