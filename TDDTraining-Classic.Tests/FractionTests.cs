@@ -24,5 +24,19 @@ namespace TDDTraining_Classic.Tests
             // then
             result.ToString().Should().Be("6/7");
         }
+
+        [Test]
+        public void Add_TwoFractionsWhereOneDenominatorIsMultipleOfTheOtherOne()
+        {
+            // given
+            var fraction1 = new Fraction(3, 4);
+            var fraction2 = new Fraction(3, 8);
+
+            // when
+            var result = fraction1.Add(fraction2);
+
+            // then
+            result.ToString().Should().Be("9/8");
+        }
     }
 }

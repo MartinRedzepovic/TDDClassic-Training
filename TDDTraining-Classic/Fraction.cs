@@ -19,7 +19,10 @@ namespace TDDTraining_Classic
 
         public Fraction Add(Fraction other)
         {
-            return new Fraction(Nominator + other.Nominator, Denominator);
+            var newDenominator = Math.Max(other.Denominator, Denominator);
+            var newNominator = Nominator * (newDenominator / Denominator) +
+                               other.Nominator * (newDenominator / other.Denominator);
+            return new Fraction(newNominator, newDenominator);
         }
 
         public override string ToString()
