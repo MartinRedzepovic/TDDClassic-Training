@@ -19,10 +19,17 @@ namespace TDDTraining_Classic
 
         public Fraction Add(Fraction other)
         {
-            var newDenominator = Math.Max(other.Denominator, Denominator);
+            var newDenominator = Denominator * other.Denominator;
             var newNominator = Nominator * (newDenominator / Denominator) +
                                other.Nominator * (newDenominator / other.Denominator);
-            return new Fraction(newNominator, newDenominator);
+            var gcd = CalculateGreatestCommonDivisor(newNominator, newDenominator);
+
+            return new Fraction(newNominator / gcd, newDenominator / gcd);
+        }
+
+        private int CalculateGreatestCommonDivisor(int a, int b)
+        {
+            return b == 0 ? a : CalculateGreatestCommonDivisor(b, a % b);
         }
 
         public override string ToString()
